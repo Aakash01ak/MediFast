@@ -18,6 +18,13 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+mongoose.connect("mongodb+srv://admin-yash:Yash123@cluster0-1lje1.mongodb.net/userDB", {useNewUrlParser: true});
+mongoose.set('useCreateIndex', true);
+
+app.get("/", function(req, res){
+  res.render("home");
+})
+
 
 app.listen(3000, function() {
   console.log("Server has started successfully");
