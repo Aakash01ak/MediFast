@@ -1,0 +1,39 @@
+<%- include('header') %>
+
+
+<div class="choose-area pb_90">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="headline">
+          <h2>PARTNERED HOSPITALS</h2>
+          <h3>Range of hospitals and medics to choose from</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+<%  hospital_data.forEach(function(hospital){ %>
+      <div class="col-lg-3">
+        <div class="choose-item flex" style="">
+          <div class="choose-text">
+            <h4><%= hospital.name %></h4>
+            <h4><%= hospital.street_address %></h4>
+            <h4><%= hospital.city %></h4>
+            <h4>BED SIZE : <%= hospital.hospital_bed_count %></h4>
+            <h4>STATE CODE : <%= hospital.fips_state_and_county_code %></h4>
+            <h4><a href="tel:<%= hospital.medicare_provider_number %>">MAKE A CALL</a></h4>
+          </div>
+        </div>
+      </div>
+<%  }) %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<%- include('footer') %>

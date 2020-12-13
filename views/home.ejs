@@ -1,81 +1,4 @@
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-
-<head>
-  <!-- Meta Tags -->
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <title>MediFast</title>
-  <!-- Favicon -->
-  <!--  <link rel="icon" type="image/jpg" href="assets/images/icon.jpg"> -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/lib/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/lib/css/fontawesome.min.css">
-  <link rel="stylesheet" href="assets/lib/css/responsive.css">
-  <link rel="stylesheet" href="assets/lib/css/select2.min.css">
-  <link rel="stylesheet" href="assets/lib/css/spacing.css">
-  <link rel="stylesheet" href="assets/lib/css/style.css">
-  <link rel="stylesheet" href="assets/lib/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="assets/lib/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="assets/lib/css/animate.css">
-  <link rel="stylesheet" href="assets/lib/css/bootstrap-datepicker.min.css">
-  <link rel="stylesheet" href="assets/lib/css/magnific-popup.css">
-  <link rel="stylesheet" href="assets/css/home.css">
-  <link rel="stylesheet" href="assets/css/header.css">
-  <link rel="stylesheet" href="assets/css/footer.css">
-
-</head>
-
-<body onLoad="typeWriter()">
-
-  <!--Header Start-->
-  <nav class="navbar navbar-expand-md navbar-light" id="header">
-    <div class="home-icon"><i class="fas fa-user-md fa-4x home-icon"></i></div>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">HOME</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">ABOUT</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            HOSPITALS
-          </a>
-
-
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            APPOINTMENT
-          </a>
-
-
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            AMBULANCE SERVICE
-          </a>
-
-
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/news">COMMUNITY</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!--Header End-->
+<%- include('header') %>
   <!--Banner Start-->
   <div class="banner-slider" style="background-image: url(assets/images/1.jpg)">
     <div class="bg"></div>
@@ -356,104 +279,6 @@
   </section>
   <!-- END OF TESTIMONIALS -->
 
-  <!-- Address -->
-
-  <div class="feature-area feature-two bg-area pt_90 pb_90">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="headline">
-            <h4>Address</h4>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="feature-item">
-            <div class="feature-icon">
-              <br>
-              <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
-            </div>
-            <div class="feature-text">
-              <p>
-                3153 Foley Street<br>
-                Miami, FL 33176
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="feature-item">
-            <div class="feature-icon">
-              <br>
-              <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-            </div>
-            <div class="feature-text">
-              <p>
-                Sales: xxx-xxx-xxxx<br>
-                Support: 963-612-1782
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="feature-item">
-            <div class="feature-icon">
-              <br>
-              <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-            </div>
-            <div class="feature-text">
-              <p>
-                sales@yourwebsite.com<br>
-                support@yourwebsite.com
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="aman">
-              <div class="footer-item">
-                <ul class="footer-social">
-                  <li><a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
-                  <li><a href="http://www.twitter.com"><i class="fab fa-twitter"></i></a></li>
-                  <li><a href="http://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
-                  <li><a href="http://www.pinterest.com"><i class="fab fa-pinterest"></i></a></li>
-                  <li><a href="http://www.youtube.com"><i class="fab fa-youtube"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom pt_50 pb_50">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="footer-menu">
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/terms">Terms and Conditions</a></li>
-              <li><a href="/privacypolicy">Privacy Policy</a></li>
-              <li><a href="/">Visitor: &nbsp;
-                  <img src='https://www.free-website-hit-counter.com/c.php?d=9&id=124065&s=5' border='0' alt='Free Website Hit Counter'>
-                </a></li>
-            </ul>
-          </div>
-          <div class="copy-text">
-            <p>
-              Copyright © 2020
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Footer-Area End-->
-
   <script>
     var i = 0;
     var txt = 'WELCOME TO MEDIFAST: FAST AND EFFECTIVE';
@@ -468,17 +293,14 @@
     }
   </script>
 
-</body>
+  <!-- JavaScript -->
+  <script type="text/javascript" src="assets/lib/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="assets/lib/js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="assets/lib/js/popper.min.js"></script>
+  <script type="text/javascript" src="assets/lib/js/bootstrap.bundle.js"></script>
+  <script type="text/javascript" src="assets/lib/js/all.min.js"></script>
+  <script type="text/javascript" src="assets/lib/js/select2.full.min.js"></script>
+  <script type="text/javascript" src="assets/js/home.js"></script>
+  <script type="text/javascript" src="assets/js/footer.js"></script>
 
-<!-- JavaScript -->
-<script type="text/javascript" src="assets/lib/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="assets/lib/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="assets/lib/js/popper.min.js"></script>
-<script type="text/javascript" src="assets/lib/js/bootstrap.bundle.js"></script>
-<script type="text/javascript" src="assets/lib/js/all.min.js"></script>
-<script type="text/javascript" src="assets/lib/js/select2.full.min.js"></script>
-<script type="text/javascript" src="assets/js/home.js"></script>
-<script type="text/javascript" src="assets/js/footer.js"></script>
-
-
-</html>
+<%- include('footer') %>

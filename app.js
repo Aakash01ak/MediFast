@@ -8,6 +8,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
+const request = require("request");
 
 
 const app = express();
@@ -23,7 +24,21 @@ mongoose.set('useCreateIndex', true);
 
 app.get("/", function(req, res){
   res.render("home");
-})
+});
+
+let hospital = [];
+let hospital_array = [];
+request("http://www.communitybenefitinsight.org/api/get_hospitals.php?state=NC", function(error, response, body){
+  hospital = JSON.parse(body);
+  hospital.slice(0, 100);
+});
+
+app.get("/hospital", function(req, res){
+  res.render("hospital", {
+    hospital_data: hospital,
+  });
+});
+
 
 
 app.listen(3000, function() {
