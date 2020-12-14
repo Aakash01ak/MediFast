@@ -36,6 +36,12 @@ mongoose.set('useCreateIndex', true);
 app.get("/", function (req, res) {
   res.render("home");
 });
+app.get("/LogIn", function (req, res) {
+  res.render("Login");
+});
+app.get("/SignIn", function (req, res) {
+  res.render("SignIn");
+});
 var hospital = [];
 var hospital_array = [];
 request("http://www.communitybenefitinsight.org/api/get_hospitals.php?state=NC", function (error, response, body) {
