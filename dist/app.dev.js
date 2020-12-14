@@ -42,6 +42,9 @@ app.get("/LogIn", function (req, res) {
 app.get("/SignIn", function (req, res) {
   res.render("SignIn");
 });
+app.get("/Community", function (req, res) {
+  res.render("Community");
+});
 var hospital = [];
 var hospital_array = [];
 request("http://www.communitybenefitinsight.org/api/get_hospitals.php?state=NC", function (error, response, body) {
