@@ -1,16 +1,49 @@
 <%- include('header') %>
 
 
-    <div class="choose-area pb_90">
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-12">
-                    <div class="headline">
-                        <h2>Community Service</h2>
-                    </div>
-                </div>
-            </div>
+<div class="choose-area pb_90">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="headline">
+          <h2>Community Service</h2>
         </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-lg-3" style="text-align: center;">
+        <a href="/forum"><button href="/forum" class="btn btn-lg btn-dark">DISCUSSION FORUM</button></a>
+      </div>
+      <div class="col-lg-3" style="text-align: center;">
+        <a href="/question"><button href="/question" class="btn btn-lg btn-dark submit-button">QUESTIONS</button></a>
+      </div>
+      <div class="col-lg-3" style="text-align: center;">
+        <a href="/ask"><button href="/ask" class="btn btn-lg btn-dark submit-button">ASK</button></a>
+      </div>
+      <div class="col-lg-3" style="text-align: center;">
+        <a href="/post"><button href="/post" class="btn btn-lg btn-dark submit-button">POST AN INFO</button></a>
+      </div>
+    </div>
+    <br><br><br>
+
+    <div class="row">
+      <div class="col-12">
+        <%  posts.forEach(function(post){ %>
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading"><%= post.name %></h4>
+          <p><%= post.question %></p>
+          <hr>
+          <p class="mb-0"><%= post.answer %></p>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
 
 <%- include('footer') %>

@@ -10,57 +10,143 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
 const request = require("request");
 const app = express();
+
+
 app.use(express.static("public"));
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
-    extended: true
+  extended: true
 }));
-mongoose.connect("mongodb+srv://admin-yash:Yash123@cluster0-1lje1.mongodb.net/userDB", { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connect("mongodb+srv://admin-yash:Yash123@cluster0-1lje1.mongodb.net/userDB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 mongoose.set('useCreateIndex', true);
-app.get("/", function(req, res) {
-    res.render("home");
-});
-app.get("/LogIn", function(req, res) {
-    res.render("Login");
-});
-app.get("/SignIn", function(req, res) {
-    res.render("SignIn");
-});
+
+const postSchema = {
+  name: String,
+  question: String,
+  answer: String
+};
+
+const questionSchema = {
+  person: String,
+  question: String
+};
+
+const Question = mongoose.model("Question", questionSchema);
+const Post = mongoose.model("Post", postSchema);
+
 app.get("/Community", function(req, res) {
-    res.render("Community");
+  Post.find({}, function(err, posts) {
+    res.render("Community", {
+      posts: posts
+    });
+  });
+});
+
+app.get("/question", function(req, res) {
+  Question.find({}, function(err, questions) {
+    res.render("question", {
+      questions: questions
+    });
+  });
+});
+
+app.get("/ask", function(req, res) {
+  res.render("ask");
+});
+
+app.get("/post", function(req, res) {
+  res.render("post");
+});
+
+app.post("/post", function(req, res) {
+  const post = new Post({
+    name: req.body.postName,
+    question: req.body.postQuestion,
+    answer: req.body.postMessage
+  });
+  post.save(function(err) {
+    if (!err) {
+      res.redirect("/Community");
+    }
+  });
+});
+
+app.post("/ask", function(req, res) {
+  const question = new Question({
+    person: req.body.questionName,
+    question: req.body.questionMessage
+  });
+  question.save(function(err) {
+    if (!err) {
+      res.redirect("/question");
+    }
+  });
+});
+
+app.get("/question", function(req, res) {
+  Question.find({}, function(err, questions) {
+    res.render("question", {
+      questions: questions
+    });
+  });
+});
+
+app.get("/forum", function(req, res) {
+  res.render("forum");
+});
+
+app.get("/", function(req, res) {
+  res.render("home");
+});
+
+app.get("/LogIn", function(req, res) {
+  res.render("Login");
+});
+
+app.get("/SignIn", function(req, res) {
+  res.render("SignIn");
+});
+
+app.get("/Community", function(req, res) {
+  res.render("Community");
 });
 
 
 let hospital = [];
 let hospital_array = [];
 request("http://www.communitybenefitinsight.org/api/get_hospitals.php?state=NC", function(error, response, body) {
-    hospital = JSON.parse(body);
-    hospital.slice(0, 100);
+  hospital = JSON.parse(body);
+  hospital.slice(0, 100);
 });
 
 app.get("/hospital", function(req, res) {
-    res.render("hospital", {
-        hospital_data: hospital,
-    });
+  res.render("hospital", {
+    hospital_data: hospital,
+  });
 });
 
 let hospitalCity;
 let hospitalName;
-app.post("/searchHospital", function(req, res){
+app.post("/searchHospital", function(req, res) {
   hospitalCity = req.body.city;
   hospitalName = req.body.hospitalName;
 
   let searchedHospital = [];
-  for(let i=0;i<hospital.length;i++){
-    if(hospital[i].city === hospitalCity){
+  for (let i = 0; i < hospital.length; i++) {
+    if (hospital[i].city === hospitalCity) {
       searchedHospital.push(hospital[i]);
       break;
     }
   }
 
-  for(let i=0;i<hospital.length;i++){
-    if(hospital[i].name === hospitalName){
-      if(searchedHospital[0].name !== hospitalName){
+  for (let i = 0; i < hospital.length; i++) {
+    if (hospital[i].name === hospitalName) {
+      if (searchedHospital[0].name !== hospitalName) {
         searchedHospital.push(hospital[i]);
       }
       break;
@@ -75,5 +161,5 @@ app.post("/searchHospital", function(req, res){
 
 
 app.listen(3000, function() {
-    console.log("Server has started successfully");
+  console.log("Server has started successfully");
 });

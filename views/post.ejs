@@ -1,0 +1,38 @@
+<%- include('header') %>
+
+<div class="choose-area pb_90">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="headline">
+          <h2>Your Space</h2>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-12 login-form">
+        <form action="/post" method="POST">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Your Name</label>
+            <input type="text" class="form-control" name="postName" id="exampleFormControlInput1" placeholder="Your Name" autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">What you wanna talk about</label>
+            <input type="text" class="form-control" name="postQuestion" id="exampleFormControlInput1" placeholder="Your Message" autocomplete="off">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">It's all yours</label>
+            <textarea class="form-control" name="postMessage" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="col-lg-12" style="text-align: left;">
+            <button type="submit" class="btn btn-dark submit-button">SUBMIT</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('footer') %>
