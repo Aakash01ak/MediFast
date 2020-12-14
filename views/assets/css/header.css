@@ -1,16 +1,17 @@
 #header {
-    background-color:#4fa527;
+    background-color: #4fa527;
 }
 
 .list-group-item {
-    background-color:#4fa527;
+    background-color: #4fa527;
     border: none;
-    color:#ffffff;
+    color: #ffffff;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color:#ffffff;
+    color: #ffffff;
 }
+
 .special {
     display: inline;
 }
@@ -31,25 +32,24 @@
     vertical-align: middle;
 }
 
-article
-{
+article {
     width: 70%;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
-
-.thumbnail{
-
+.thumbnail {
     height: 100px;
     margin: 10px;
     float: left;
 }
-#clear{
-   display:none;
+
+#clear {
+    display: none;
 }
+
 #result {
     border: 4px dotted #cccccc;
     display: none;
-    margin:0 auto;
+    margin: 0 auto;
     width: 511px;
 }
