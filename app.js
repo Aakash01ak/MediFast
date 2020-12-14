@@ -29,6 +29,8 @@ app.get("/SignIn", function(req, res) {
 app.get("/Community", function(req, res) {
     res.render("Community");
 });
+
+
 let hospital = [];
 let hospital_array = [];
 request("http://www.communitybenefitinsight.org/api/get_hospitals.php?state=NC", function(error, response, body) {
@@ -41,6 +43,37 @@ app.get("/hospital", function(req, res) {
         hospital_data: hospital,
     });
 });
+
+let hospitalCity;
+let hospitalName;
+app.post("/searchHospital", function(req, res){
+  hospitalCity = req.body.city;
+  hospitalName = req.body.hospitalName;
+
+  let searchedHospital = [];
+  for(let i=0;i<hospital.length;i++){
+    if(hospital[i].city === hospitalCity){
+      searchedHospital.push(hospital[i]);
+      break;
+    }
+  }
+
+  for(let i=0;i<hospital.length;i++){
+    if(hospital[i].name === hospitalName){
+      if(searchedHospital[0].name !== hospitalName){
+        searchedHospital.push(hospital[i]);
+      }
+      break;
+    }
+  }
+
+  res.render("hospital", {
+    hospital_data: searchedHospital,
+  });
+
+});
+
+
 app.listen(3000, function() {
     console.log("Server has started successfully");
 });
