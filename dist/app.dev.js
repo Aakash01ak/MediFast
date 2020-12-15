@@ -43,6 +43,9 @@ app.get("/about", function (req, res) {
 app.get("/appointment", function(req, res) {
   res.render("appointment");
 });
+app.get("/contact", function(req, res) {
+  res.render("Contact");
+});
 app.get("/LogIn", function (req, res) {
   res.render("Login");
 });
