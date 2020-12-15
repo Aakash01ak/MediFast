@@ -33,8 +33,15 @@ mongoose.connect("mongodb+srv://admin-yash:Yash123@cluster0-1lje1.mongodb.net/us
   useUnifiedTopology: true
 });
 mongoose.set('useCreateIndex', true);
+
 app.get("/", function (req, res) {
   res.render("home");
+});
+app.get("/about", function (req, res) {
+  res.render("about");
+});
+app.get("/appointment", function(req, res) {
+  res.render("appointment");
 });
 app.get("/LogIn", function (req, res) {
   res.render("Login");

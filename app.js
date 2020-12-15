@@ -103,7 +103,12 @@ app.get("/forum", function(req, res) {
 app.get("/", function(req, res) {
   res.render("home");
 });
-
+app.get("/about", function(req, res) {
+    res.render("about");
+});
+app.get("/appointment", function(req, res) {
+  res.render("appointment");
+});
 app.get("/LogIn", function(req, res) {
   res.render("Login");
 });
