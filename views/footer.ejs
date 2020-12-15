@@ -95,14 +95,25 @@
 
 
 <!-- JavaScript -->
-<script type="text/javascript" src="assets/lib/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="assets/lib/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="assets/lib/js/popper.min.js"></script>
-<script type="text/javascript" src="assets/lib/js/bootstrap.bundle.js"></script>
-<script type="text/javascript" src="assets/lib/js/all.min.js"></script>
-<script type="text/javascript" src="assets/lib/js/select2.full.min.js"></script>
-<script type="text/javascript" src="assets/js/home.js"></script>
-<script type="text/javascript" src="assets/js/footer.js"></script>
+<script>
+    var i = 0;
+    var txt = 'WELCOME TO MEDIFAST: FAST AND EFFECTIVE';
+    var speed = 60;
+
+    function typeWriter() {
+        if (i < txt.length) {
+            document.getElementById("typeit").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+</script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Plugin file -->
+<script src="./js/addons/datatables.min.js"></script>
 </body>
 
 

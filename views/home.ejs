@@ -278,19 +278,4 @@
         </div>
     </section>
     <!-- END OF TESTIMONIALS -->
-
-    <script>
-        var i = 0;
-        var txt = 'WELCOME TO MEDIFAST: FAST AND EFFECTIVE';
-        var speed = 60;
-
-        function typeWriter() {
-            if (i < txt.length) {
-                document.getElementById("typeit").innerHTML += txt.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            }
-        }
-    </script>
-
     <%- include('footer') %>
