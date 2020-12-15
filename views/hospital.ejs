@@ -1,64 +1,72 @@
 <%- include('header') %>
 
 
-<div class="choose-area pb_90">
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-12">
-        <div class="headline hospital-container">
-          <h2>PARTNERED HOSPITALS</h2>
-          <h3>Range of hospitals and medics to choose from</h3>
-        </div>
-      </div>
-    </div>
+    <div class="choose-area pb_90">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="headline hospital-container">
+                        <h2>PARTNERED HOSPITALS</h2>
+                        <h3>Range of hospitals and medics to choose from</h3>
+                    </div>
+                </div>
+            </div>
 
-    <form action="/searchHospital" method="POST">
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="form-group">
-            <label for="city">Search By City</label>
-            <select class="form-control" id="city" name="city">
+            <form action="/searchHospital" method="POST">
+                <div class="row mt-2">
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            <label for="city">Search By City</label>
+                            <select class="form-control" id="city" name="city">
               <%  hospital_data.forEach(function(hospital){ %>
               <option value="<%= hospital.city %>"><%= hospital.city %></option>
               <% }) %>
             </select>
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <div class="form-group">
-            <label for="hospitalName">Search By Hospital Name</label>
-            <select class="form-control" id="hospitalName" name="hospitalName">
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="form-group">
+                            <label for="hospitalName">Search By Hospital Name</label>
+                            <select class="form-control" id="hospitalName" name="hospitalName">
               <%  hospital_data.forEach(function(hospital){ %>
               <option value="<%= hospital.name %>"><%= hospital.name %></option>
               <% }) %>
             </select>
-          </div>
-        </div>
-        <div class="col-lg-2" style="text-align: right;">
-          <button type="submit" class="btn btn-dark submit-button">SUBMIT</button>
-        </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2" style="text-align: right;">
+                        <button type="submit" class="btn btn-dark submit-button">SUBMIT</button>
+                    </div>
 
-      </div>
-    </form>
+                </div>
+            </form>
 
-    <div class="row">
-      <%  hospital_data.forEach(function(hospital){ %>
-      <div class="col-lg-3">
-        <div class="card" style="width: 18rem;">
-          <div class="card-header">
-            <h6><%= hospital.name %></h6>
-          </div>
-          <div class="card-body">
-            <p class="card-title"><i class="fas fa-map-marker-alt"></i> <%= hospital.street_address %></p>
-            <p class="card-text"><i class="far fa-building"></i> <%= hospital.city %></p>
-            <p class="card-text"><i class="fas fa-bed"></i>BED COUNT : <%= hospital.hospital_bed_count %></p>
-            <a href="tel:<%= hospital.medicare_provider_number %>" class="btn btn-primary">Make a Call</a>
-          </div>
+            <div class="row justify-content-center">
+                <%  hospital_data.forEach(function(hospital){ %>
+                    <div class="col-lg-4 col-md-6 mt-4 ">
+                        <div class="card" style="width:100%;">
+                            <div class="card-header">
+                                <h6>
+                                    <%= hospital.name %>
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-title"><i class="fas fa-map-marker-alt"></i>
+                                    <%= hospital.street_address %>
+                                </p>
+                                <p class="card-text"><i class="far fa-building"></i>
+                                    <%= hospital.city %>
+                                </p>
+                                <p class="card-text"><i class="fas fa-bed"></i>BED COUNT :
+                                    <%= hospital.hospital_bed_count %>
+                                </p>
+                                <a href="tel:<%= hospital.medicare_provider_number %>" class="btn btn-primary">Make a Call</a>
+                            </div>
+                        </div>
+                    </div>
+                    <%  }) %>
+            </div>
         </div>
-      </div>
-      <%  }) %>
     </div>
-  </div>
-</div>
 
-<%- include('footer') %>
+    <%- include('footer') %>
