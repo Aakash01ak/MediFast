@@ -29,7 +29,8 @@ const postSchema = {
   name: String,
   email: String,
   question: String,
-  answer: String
+  answer: String,
+  vote: Number
 };
 
 const questionSchema = {
@@ -37,13 +38,22 @@ const questionSchema = {
   question: String
 };
 
+const reviewSchema = {
+  vote: Number,
+  index: Number
+};
+
 const Question = mongoose.model("Question", questionSchema);
 const Post = mongoose.model("Post", postSchema);
+const Review = mongoose.model("Review", reviewSchema);
 
 app.get("/Community", function(req, res) {
   Post.find({}, function(err, posts) {
-    res.render("Community", {
-      posts: posts
+    Review.find({}, function(err, reviews){
+      res.render("Community", {
+        posts: posts,
+        reviews: reviews
+      });
     });
   });
 });
@@ -69,13 +79,30 @@ app.post("/post", function(req, res) {
     name: req.body.postName,
     email: req.body.postEmail,
     question: req.body.postQuestion,
-    answer: req.body.postMessage
+    answer: req.body.postMessage,
+  });
+  let total;
+  Review.find({}, function(err, reviews){
+    total = reviews.length;
+  });
+  let review = new Review({
+    vote: 0,
+    index: total
   });
   post.save(function(err) {
     if (!err) {
-      res.redirect("/Community");
+      review.save(function(err){
+        if(!err){
+           res.redirect("/Community");
+        }
+      });
     }
   });
+});
+
+app.post("/vote", function(req, res){
+  const vote = req.body.vote;
+  const index = req.body.button;
 });
 
 app.post("/ask", function(req, res) {

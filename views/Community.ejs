@@ -28,6 +28,7 @@
     </div>
     <br><br><br>
 
+    <% let index = 0; %>
     <div class="row">
       <div class="col-12">
         <%  posts.forEach(function(post){ %>
@@ -38,6 +39,21 @@
           <p class="mb-0"><%= post.answer %></p>
           <hr>
           <p class="mb-0"><a href="mailto:<%= post.email %>"><button class="btn btn-lg btn-dark submit-button">EMAIL <%= post.name %></button></a></p>
+          <hr>
+
+          <% if(reviews.length > index){ %>
+            <form name="reviewForm" action="/vote" method="post">
+              <p>+<%= reviews[index].vote %> Reviews </p>
+              <input type="radio" id="upvote" name="vote" value="upvote">
+              <label for="upvote">Upvote</label>
+              <input type="radio" id="downvote" name="vote" value="downvote">
+              <label for="downvote">Downvote</label>
+              <button type="submit" name="button" value="<%= index %>" class="btn btn-primary">SUBMIT</button>
+            </form>
+
+          <% } %>
+
+          <% index++; %>
         </div>
         <% }) %>
       </div>
