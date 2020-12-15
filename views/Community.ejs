@@ -32,10 +32,12 @@
       <div class="col-12">
         <%  posts.forEach(function(post){ %>
         <div class="alert alert-success" role="alert">
-          <h4 class="alert-heading"><%= post.name %></h4>
-          <p><%= post.question %></p>
+          <h4 class="alert-heading"><%= post.question %></h4>
+          <p><%= post.name %></p>
           <hr>
           <p class="mb-0"><%= post.answer %></p>
+          <hr>
+          <p class="mb-0"><a href="mailto:<%= post.email %>"><button class="btn btn-lg btn-dark submit-button">EMAIL <%= post.name %></button></a></p>
         </div>
         <% }) %>
       </div>

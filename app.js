@@ -27,6 +27,7 @@ mongoose.set('useCreateIndex', true);
 
 const postSchema = {
   name: String,
+  email: String,
   question: String,
   answer: String
 };
@@ -66,6 +67,7 @@ app.get("/post", function(req, res) {
 app.post("/post", function(req, res) {
   const post = new Post({
     name: req.body.postName,
+    email: req.body.postEmail,
     question: req.body.postQuestion,
     answer: req.body.postMessage
   });
@@ -93,6 +95,13 @@ app.get("/question", function(req, res) {
     res.render("question", {
       questions: questions
     });
+  });
+});
+
+app.post("/answerNow", function(req, res){
+  const ques = req.body.button;
+  res.render("answerNow", {
+    question: ques,
   });
 });
 

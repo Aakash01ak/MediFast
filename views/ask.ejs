@@ -14,21 +14,35 @@
     <br><br>
 
     <div class="row">
-      <div class="col-lg-12 login-form">
-        <form action="/ask" method="POST">
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Your Name</label>
-            <input type="text" class="form-control" name="questionName" id="exampleFormControlInput1" placeholder="Your Name" autocomplete="off">
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Leave a Question, Be specific</label>
-            <textarea class="form-control" name="questionMessage" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <div class="col-lg-12" style="text-align: left;">
-            <button type="submit" class="btn btn-dark submit-button">SUBMIT</button>
-          </div>
-        </form>
-      </div>
+        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-6 col-md-8 login-box">
+            <div class="col-lg-12 login-form">
+                <div class="col-lg-12 login-form">
+                    <form action="/ask" method="POST">
+                        <div class="form-group">
+                            <label class="form-control-label">Your Name</label>
+                            <input type="text" name="questionName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-group">
+                              <label class="form-control-label">EMAIL</label>
+                              <input name="questionEmail" type="email" class="form-control" required>
+                          </div>
+                            <label class="form-control-label">LEAVE A QUESTION, BE SPECIFIC</label>
+                            <input name="questionMessage" type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-12 ">
+
+                            <div class="row justify-content-center">
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-primary">ASK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 
