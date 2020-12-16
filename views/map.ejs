@@ -1,0 +1,105 @@
+<%- include('header') %>
+
+ <!DOCTYPE html>
+     <html lang="en" dir="ltr">
+       <head>
+         <meta charset="utf-8">
+         <title></title>
+       <style>
+          #map{
+            height:400px;
+            width:100%;
+         }
+         </style>
+       </head>
+       <body>
+         <div class="container mt-4 mb-4">
+        <h1 class="mt-4 mb-4">My Google Map</h1>
+        <div id="map"></div>
+      <script defer type="text/javascript">
+            var url="http://localhost:3000/maps";
+
+             var lati=25.2744;
+             var longi=133.7751;
+              if (navigator.geolocation)
+            {
+              navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+            }
+            else
+            {
+              alert('It seems like Geolocation, which is required for this page, is not enabled in your browser.');
+            }
+            function successFunction(position)
+            {
+                 lati = position.coords.latitude;
+                 longi = position.coords.longitude;
+
+                 fetch(url,{
+                   method:"POST",
+                   headers: {
+    'Content-Type': 'application/json',
+  },
+                   body:JSON.stringify({
+                     latitude:lati,
+                     longitude:longi
+                   })
+               });
+
+                 alert('Your latitude is :'+lati+' and longitude is '+longi);
+            }
+            function errorFunction(position)
+             {
+                 alert('Error!');
+             }
+
+           function initMap(){
+           const dhanbad = { lat: lati, lng: longi };
+           var options={
+           zoom:15,
+           center: dhanbad
+           }
+          var map=new google.maps.Map(document.getElementById("map"),options);
+
+          var request = {
+          location: dhanbad,
+          radius: 400,
+          types: ['hospital', 'health'] // this is where you set the map to get the hospitals and health related places
+          };
+
+          infowindow = new google.maps.InfoWindow();
+          var service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, callback);
+           }
+
+
+          function callback(results, status) {
+          if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+          Marker(results[i]);
+                }
+             }
+          }
+
+          function Marker(place) {
+          var placeLoc = place.geometry.location;
+          var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+          });
+         google.maps.event.addListener(marker, 'click', function() {
+           infowindow.setContent(place.name);
+           infowindow.open(map, this);
+         });
+       }
+       google.maps.event.addDomListener(window, 'load', initialize);
+       </script>
+   </div>
+
+
+       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx4BWZ6_eYEJ_1swSP5aSBgwGDA5ML3Uw&callback=initMap&libraries=&v=weekly"
+       ></script>
+
+    </body>
+    </html>
+
+   <%- include('footer') %>
