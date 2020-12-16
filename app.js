@@ -19,6 +19,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.use(bodyParser.json({
+  extended:true
+}))
+
 mongoose.connect("mongodb+srv://admin-yash:Yash123@cluster0-1lje1.mongodb.net/userDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -201,6 +205,40 @@ app.post("/searchHospital", function(req, res) {
   });
 
 });
+
+
+
+const locationSchema = {
+     latitude: Number,
+     longitude: Number
+   };
+
+
+   const Location = mongoose.model("Location", locationSchema);
+
+
+   app.post("/maps",(req,res)=>{
+    const latitude=req.body.latitude;
+    const longitude=req.body.longitude;
+    // console.log(latitude);
+    // console.log(longitude);
+     const location=new Location({
+       latitude:latitude,
+       longitude:longitude
+     });
+     location.save(function(err) {
+       if (!err) {
+         // console.log(location);
+       }
+     });
+});
+
+
+app.get("/maps",(req,res)=>{
+
+  res.render("map")
+});
+
 
 
 app.listen(3000, function() {
