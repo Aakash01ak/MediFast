@@ -38,23 +38,14 @@ const questionSchema = {
   question: String
 };
 
-const reviewSchema = {
-  vote: Number,
-  index: Number
-};
-
 const Question = mongoose.model("Question", questionSchema);
 const Post = mongoose.model("Post", postSchema);
-const Review = mongoose.model("Review", reviewSchema);
 
 app.get("/Community", function(req, res) {
   Post.find({}, function(err, posts) {
-    Review.find({}, function(err, reviews){
       res.render("Community", {
         posts: posts,
-        reviews: reviews
       });
-    });
   });
 });
 
@@ -80,30 +71,38 @@ app.post("/post", function(req, res) {
     email: req.body.postEmail,
     question: req.body.postQuestion,
     answer: req.body.postMessage,
-  });
-  let total;
-  Review.find({}, function(err, reviews){
-    total = reviews.length;
-  });
-  let review = new Review({
-    vote: 0,
-    index: total
+    vote: 0
   });
   post.save(function(err) {
     if (!err) {
-      review.save(function(err){
-        if(!err){
-           res.redirect("/Community");
-        }
-      });
+      res.redirect("/Community");
     }
   });
 });
 
 app.post("/vote", function(req, res){
-  const vote = req.body.vote;
-  const index = req.body.button;
+  const type = req.body.vote;
+  const id = req.body.button;
+  if(type==="upvote"){
+    Post.findOneAndUpdate({_id: id}, { $inc: { vote: 1 } }, function(err, posts){
+      if(!err){
+        res.redirect("/Community");
+      } else {
+        console.log(err);
+      }
+    });
+  } else {
+    Post.findOneAndUpdate({_id: id}, { $inc: { vote: -1 } }, function(err, posts){
+      if(!err){
+        res.redirect("/Community");
+      } else {
+        console.log(err);
+      }
+    });
+  }
+
 });
+
 
 app.post("/ask", function(req, res) {
   const question = new Question({
