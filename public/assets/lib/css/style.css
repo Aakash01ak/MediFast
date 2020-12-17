@@ -1385,11 +1385,11 @@ Choose Items
 .choose-item:before {
 	position: absolute;
 	content: '';
-	width: 100%;
+	width: 108%;
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: #4fa527;
+	background: #024acf;
 	opacity: 0.7;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
