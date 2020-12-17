@@ -206,6 +206,10 @@ app.post("/searchHospital", function(req, res) {
 
 });
 
+app.get("/emergency", function(req, res){
+  res.render("emergency");
+});
+
 
 
 const locationSchema = {
