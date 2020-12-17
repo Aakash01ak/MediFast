@@ -190,7 +190,7 @@ section {
 }
 
 .footer-distributed .footer-center p a{
-	color: blue;
+	color: #2f77ed;
 	text-decoration: none;;
 }
 .footer-distributed .footer-center p a:hover{
@@ -282,12 +282,67 @@ section {
 /* ====================== */
 /* Increasing Number */
 
-  
- 
-
   .counter { background-color: #ffffff; padding: 20px 0; border-radius: 5px;}
   .count-title { font-size: 40px; font-weight: bold;  margin-top: 10px; margin-bottom: 0; text-align: center; }
   .count-text { font-size: 25px; font-weight: bold;  margin-top: 10px; margin-bottom: 0; text-align: center; }
   .fa-2x { margin: 0 auto; float: none; display: table; color: #4ad1e5; }
   
 /* ============================ */
+
+/* Gallery */
+
+.gallery{
+	/* font-family: 'Muli', sans-serif; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
+	overflow: hidden;
+	margin: 0;
+  }
+
+.containergal {
+	display: flex;
+	width: 95vw;
+  }
+  
+  .panel {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 65vh;
+	border-radius: 40px;
+	color: #fff;
+	cursor: pointer;
+	flex: 0.5;
+	margin: 4px;
+	position: relative;
+	transition: flex 0.7s ease-in;
+  }
+  
+  .panel h3 {
+	font-size: 20px;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	margin: 0;
+	opacity: 0;
+  }
+  
+  .panel.active {
+	flex: 5;
+  }
+  
+  .panel.active h3 {
+	opacity: 1;
+	transition: opacity .3s ease-in 0.5s;
+  }
+  
+  @media(max-width: 480px) {
+	.containergal {
+	  width: 100vw;
+	}
+	
+  }
+
+  
