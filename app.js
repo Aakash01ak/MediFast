@@ -206,8 +206,33 @@ app.post("/searchHospital", function(req, res) {
 
 });
 
+app.get("/selectedAmbulance", function(req, res){
+  res.render("selectedAmbulance");
+});
+
+app.post("/searchAmbulance", function(req, res){
+  const city = req.body.city;
+  console.log(city);
+  let searchedHospital = [];
+  for (let i = 0; i < hospital.length; i++) {
+    if (hospital[i].city === hospitalCity) {
+      searchedHospital.push(hospital[i]);
+      break;
+    }
+  }
+  res.render("selectedAmbulance", {
+    hospitalData: searchedHospital
+  });
+});
+
 app.get("/emergency", function(req, res){
   res.render("emergency");
+});
+
+app.get("/ambulance", function(req, res){
+  res.render("ambulance", {
+    hospital_data: hospital
+  });
 });
 
 

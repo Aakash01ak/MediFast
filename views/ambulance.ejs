@@ -1,0 +1,88 @@
+<%- include('header') %>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+    <div class="choose-area pb_90">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="headline hospital-container">
+                        <h2>AMBULANCE SERVICES</h2>
+                        <h3>Choose Your Nearby Area to Avail Ambulance Service</h3>
+                    </div>
+                </div>
+            </div>
+
+            <form action="/searchAmbulance" method="POST">
+                <div class="row mt-2" >
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="city">Search By City</label>
+                            <select class="form-control" id="city" name="city">
+              <%  hospital_data.forEach(function(hospital){ %>
+              <option value="<%= hospital.city %>"><%= hospital.city %></option>
+              <% }) %>
+            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" style="text-align: right;">
+                        <button type="submit" class="btn btn-dark submit-button">SUBMIT</button>
+                    </div>
+
+                </div>
+            </form>
+            <br>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="headline hospital-container">
+                        <h4>HOSPITALS WITH OUR COLLABORATIONS</h4>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row justify-content-center">
+              <table>
+                <tr>
+                  <th>Hospital Name</th>
+                  <th>Hospital City</th>
+                  <th>Hospital Street Adress</th>
+                </tr>
+                <%  hospital_data.forEach(function(hospital){ %>
+                <tr>
+                  <td><%= hospital.name %></td>
+                  <td><%= hospital.city %></td>
+                  <td><%= hospital.street_address %></td>
+                </tr>
+                <%  }) %>
+              </table>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <%- include('footer') %>
