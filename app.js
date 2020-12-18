@@ -42,8 +42,18 @@ const questionSchema = {
   question: String
 };
 
+const ambulanceSchema = {
+  name: String,
+  email: String,
+  mobile: String,
+  time: String,
+  address: String,
+  message: String,
+};
+
 const Question = mongoose.model("Question", questionSchema);
 const Post = mongoose.model("Post", postSchema);
+const Ambulance = mongoose.model("Ambulance", ambulanceSchema);
 
 app.get("/Community", function(req, res) {
   Post.find({}, function(err, posts) {
@@ -206,22 +216,34 @@ app.post("/searchHospital", function(req, res) {
 
 });
 
-app.get("/selectedAmbulance", function(req, res){
-  res.render("selectedAmbulance");
-});
-
 app.post("/searchAmbulance", function(req, res){
   const city = req.body.city;
-  console.log(city);
   let searchedHospital = [];
   for (let i = 0; i < hospital.length; i++) {
-    if (hospital[i].city === hospitalCity) {
+    if (hospital[i].city === city) {
       searchedHospital.push(hospital[i]);
       break;
     }
   }
   res.render("selectedAmbulance", {
-    hospitalData: searchedHospital
+    hospital_data: searchedHospital,
+  });
+});
+
+app.post("/ambulanceForm", function(req, res){
+  const ambulance = new Ambulance({
+    name: req.body.name,
+    email: req.body.email,
+    mobile: req.body.mobileNumber,
+    time: req.body.time,
+    address: req.body.address,
+    message: req.body.message,
+  });
+
+  ambulance.save(function(err) {
+    if (!err) {
+      res.redirect("/ambulance");
+    }
   });
 });
 
@@ -264,7 +286,6 @@ const locationSchema = {
 
 
 app.get("/maps",(req,res)=>{
-
   res.render("map")
 });
 

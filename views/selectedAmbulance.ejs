@@ -6,11 +6,104 @@
             <div class="row">
                 <div class="col-12">
                     <div class="headline hospital-container">
-                        <h2>YOUR RESULT</h2>
+                        <h2>YOUR SEARCH RESULT</h2>
                     </div>
                 </div>
             </div>
+            <div class="row">
+              <div class="col-12">
+                <%  hospital_data.forEach(function(hospital){ %>
+                  <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card" style="width:100%;">
+                            <div class="card-header">
+                                <h6>
+                                    <%= hospital.name %>
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-title"><i class="fas fa-map-marker-alt"></i>
+                                    <%= hospital.street_address %>
+                                </p>
+                                <p class="card-text"><i class="far fa-building"></i>
+                                    <%= hospital.city %>
+                                </p>
+                                <p class="card-text"><i class="fas fa-bed"></i>BED COUNT :
+                                    <%= hospital.hospital_bed_count %>
+                                </p>
+                                <a href="tel:<%= hospital.medicare_provider_number %>" class="btn btn-primary">Make a Call</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="choose-item flex">
+                          <div class="choose-icon">
+                              <i class="fas fa-hospital-alt"></i>
+                          </div>
+                          <div class="choose-text">
+                              <p>Based on your selected locations, we have found out this hospital as the nearest,
+                              fill the form to proceed and you are done!</p>
+                          </div>
+                      </div>
+                    </div>
+                    </div>
+                    <%  }) %>
+              </div>
+            </div>
+            <br><hr>
+            <div class="row">
+                <div class="col-12">
+                    <div class="headline hospital-container">
+                        <h2>AMBULANCE FORM</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-2"></div>
+              <div class="col-lg-6 col-md-8 login-box">
+                  <div class="col-lg-12 login-form">
+                      <div class="col-lg-12 login-form">
+                          <form action="/ambulanceForm" method="post" autocomplete="off" name="ContactUs">
+                              <div class="form-group">
+                                  <label class="form-control-label">NAME</label>
+                                  <input type="text" class="form-control" name="name" required>
+                              </div>
 
+                              <div class="form-group">
+                                  <label class="form-control-label">EMAIL</label>
+                                  <input type="email" class="form-control" name="email" required>
+                              </div>
+                              <div class="form-group">
+                                  <label class="form-control-label">MOBILE NUMBER</label>
+                                  <input type="tel" class="form-control" name="mobileNumber" required>
+                              </div>
+                              
+                              <div class="form-group">
+                                  <label class="form-control-label">ADDRESS</label>
+                                  <input type="tel" class="form-control" name="address" required>
+                              </div>
+                              <div class="form-group">
+                                  <label class="form-control-label">PREFERRED TIME</label>
+                                  <input type="tel" class="form-control" name="time" required>
+                              </div>
+                              <div class="form-group">
+                                  <label class="form-control-label">BRIEF DESCRIPTION</label>
+                                  <textarea row="5" class="form-control xyz" name="message" required></textarea>
+                              </div>
+
+                              <div class="col-lg-12 mb-4">
+                                  <div class="row justify-content-center">
+                                      <div class="col-lg-6">
+                                          <button type="submit" name="submit" class="btn btn-primary">SUBMIT</button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-md-2"></div>
+              </div>
+            </div>
 
         </div>
     </div>

@@ -2,7 +2,7 @@
         ul.nav-menu li ul li a,
         .searchbar .input-search,
         .text-animated li a,
-        .slider-one .owl-nav .owl-prev, 
+        .slider-one .owl-nav .owl-prev,
         .slider-one .owl-nav .owl-next,
         .about-tab:before,
         .progress-gallery .bar-container .progress .progress-bar-custom,
@@ -15,7 +15,7 @@
         .faq-header button.faq-button.collapsed:hover,
         .booking-area:before,
         .bg-booking,
-        .team-carousel .owl-nav .owl-prev, 
+        .team-carousel .owl-nav .owl-prev,
         .team-carousel .owl-nav .owl-next,
         .team-text,
         .team-social li a:hover,
@@ -23,7 +23,7 @@
         .button-df a,
         .bg-testimonial,
         .testimonial-carousel .owl-dots .owl-dot,
-        .blog-carousel .owl-nav .owl-prev, 
+        .blog-carousel .owl-nav .owl-prev,
         .blog-carousel .owl-nav .owl-next,
         .blog-author li.blog-button a,
         .call-us:before,
@@ -39,10 +39,10 @@
         .sidebar-item h3:after,
         .event-contact-item,
         .gallery-bg,
-        .testimonial-grid .testimonial-description p:before, 
+        .testimonial-grid .testimonial-description p:before,
         .testimonial-two-carousel .testimonial-description p:before,
         .form-button .btn,
-        .project-carousel .owl-nav .owl-prev, 
+        .project-carousel .owl-nav .owl-prev,
         .project-carousel .owl-nav .owl-next,
         .sidebar-item button,
         .contact-item:hover .contact-icon,
@@ -51,12 +51,13 @@
         .option-board ul li a:hover {
             background: #7AA593!important;
         }
+        
 
         ul.nav-menu li:hover > a,
         .searchbar .search-button:hover,
         .text-animated li a:hover,
         .text-animated li:last-child a:hover,
-        .slider-one .owl-nav .owl-prev:hover, 
+        .slider-one .owl-nav .owl-prev:hover,
         .slider-one .owl-nav .owl-next:hover,
         .feature-item:hover .feature-icon i,
         .services-text a:hover,
@@ -89,7 +90,7 @@
         }
 
         .text-animated li a,
-        .slider-one .owl-nav .owl-prev, 
+        .slider-one .owl-nav .owl-prev,
         .slider-one .owl-nav .owl-next,
         .feature-icon i,
         .feature-item:hover .feature-text,
@@ -123,7 +124,7 @@
         }
         .text-animated li a:hover,
         .text-animated li:last-child a:hover,
-        .slider-one .owl-nav .owl-prev:hover, 
+        .slider-one .owl-nav .owl-prev:hover,
         .slider-one .owl-nav .owl-next:hover {
             background: #fff!important;
             border-color: #fff!important;
@@ -142,9 +143,9 @@
         .faq-header button.faq-button.collapsed {
             background: #fff!important;
         }
-        .team-carousel .owl-nav .owl-prev:hover, 
+        .team-carousel .owl-nav .owl-prev:hover,
         .team-carousel .owl-nav .owl-next:hover,
-        .blog-carousel .owl-nav .owl-prev:hover, 
+        .blog-carousel .owl-nav .owl-prev:hover,
         .blog-carousel .owl-nav .owl-next:hover,
         .button-df a:hover,
         .testimonial-carousel .owl-dots .owl-dot.active,
@@ -152,7 +153,7 @@
         .footer-item ul.footer-social li a:hover,
         .team-detail-text ul li a:hover,
         .form-button .btn:hover,
-        .project-carousel .owl-nav .owl-prev:hover, 
+        .project-carousel .owl-nav .owl-prev:hover,
         .project-carousel .owl-nav .owl-next:hover,
         .contact-form .btn:hover,
         ul.soc li a:hover {
