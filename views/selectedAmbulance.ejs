@@ -13,9 +13,9 @@
             <div class="row">
               <div class="col-12">
                 <%  hospital_data.forEach(function(hospital){ %>
-                  <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card" style="width:100%;">
+                  <div class="row" style="margin-left: 200px">
+                    <div class="col-lg-5">
+                        <div class="card" style="width:90%;">
                             <div class="card-header">
                                 <h6>
                                     <%= hospital.name %>
@@ -35,16 +35,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                      <div class="choose-item flex">
-                          <div class="choose-icon">
-                              <i class="fas fa-hospital-alt"></i>
-                          </div>
-                          <div class="choose-text">
-                              <p>Based on your selected locations, we have found out this hospital as the nearest,
-                              fill the form to proceed and you are done!</p>
-                          </div>
-                      </div>
+                    <div class="col-lg-5">
+                        <div class="card" style="width:90%;">
+                            <div class="card-header">
+                                <h6>
+                                  ATTENTION!
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-title">
+                                  Based upon the location you chose,
+                                  this is the nearest ambulance provider
+                                  we could find for you.<br>
+                                  Fill the form to proceed, please mention
+                                  details regarding time and any specific details
+                                  and facilities you would like to add in the service.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     </div>
                     <%  }) %>
@@ -77,7 +85,7 @@
                                   <label class="form-control-label">MOBILE NUMBER</label>
                                   <input type="tel" class="form-control" name="mobileNumber" required>
                               </div>
-                              
+
                               <div class="form-group">
                                   <label class="form-control-label">ADDRESS</label>
                                   <input type="tel" class="form-control" name="address" required>

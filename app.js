@@ -242,7 +242,11 @@ app.post("/ambulanceForm", function(req, res){
 
   ambulance.save(function(err) {
     if (!err) {
-      res.redirect("/ambulance");
+      res.render("ambulanceSuccess", {
+        location: req.body.address,
+        time: req.body.time,
+        name: req.body.name
+      });
     }
   });
 });
